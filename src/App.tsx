@@ -1,8 +1,13 @@
 import ButtonWrapper from 'elements/button'
 import { useState } from 'react'
+import Routes from 'routes'
 
 function App() {
-  return <ButtonWrapper onClick={() => {}} title="click" />
+  return (
+    <>
+      <Routes />
+    </>
+  )
 }
 
 export default App

@@ -1,7 +1,5 @@
-import React from 'react'
-
-const ProjectCard = ({ project }: any) => {
-  return <div>ProjectCard</div>
+const ProjectCard = ({ project, onClick }: any) => {
+  return <div onClick={() => onClick(project.id)}>{project.name}</div>
 }
 
 export default ProjectCard

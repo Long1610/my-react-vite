@@ -1,4 +1,4 @@
 export interface IButton {
-  title: string
+  children: any
   onClick: any
 }

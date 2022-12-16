@@ -1,5 +1,12 @@
+import Button from 'elements/button'
+import * as Styled from './login.styled'
+
 const LoginPage = () => {
-  return <div>LoginPage</div>
+  return (
+    <div>
+      <Styled.Button onClick={() => {}}>click</Styled.Button>
+    </div>
+  )
 }
 
 export default LoginPage

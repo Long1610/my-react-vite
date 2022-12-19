@@ -23,7 +23,7 @@ type Font = {
 }
 
 export type Theme = {
-  color: {
+  myColor: {
     gray: Color
     primary: Color
     error: Color
@@ -82,8 +82,8 @@ export const theme = {
   myTypography
 }
 
-export function color(name: keyof Theme['color'], shade: keyof Color) {
-  return ({ theme }: { theme: Theme }) => theme.color[name][shade]
+export function color(name: keyof Theme['myColor'], shade: keyof Color) {
+  return ({ theme }: { theme: Theme }) => theme.myColor[name][shade]
 }
 
 export function space(...names: Array<keyof Theme['space']>) {

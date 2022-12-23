@@ -16,7 +16,8 @@ export default defineConfig({
       atoms: resolve(__dirname, './src/atoms'),
       services: resolve(__dirname, './src/services'),
       components: resolve(__dirname, './src/components'),
-      assets: resolve(__dirname, './src/assets')
+      assets: resolve(__dirname, './src/assets'),
+      '@mui/styled-engine': '@mui/styled-engine-sc'
     }
   }
 })

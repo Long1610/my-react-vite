@@ -1,0 +1,49 @@
+@font-face {
+  font-family: 'Pretendard';
+  src: url(../fonts/Pretendard-Regular.otf), url(../fonts/Pretendard-Bold.otf), url(../fonts/Pretendard-Black.otf),
+    url(../fonts/Pretendard-Light.otf), url(../fonts/Pretendard-Medium.otf), url(../fonts/Pretendard-Thin.otf),
+    url(../fonts/Pretendard-ExtraBold.otf), url(../fonts/Pretendard-ExtraLight.otf),
+    url(../fonts/Pretendard-SemiBold.otf);
+}
+
+@import './variables.scss';
+@import './mixins.scss';
+@import 'sass-rem';
+
+body {
+  background: $background;
+  font-family: 'Pretendard';
+  min-height: 100vh;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-family: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+img,
+picture,
+svg,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+.main {
+  @include rem(
+    (
+      margin-right: 51px,
+      margin-bottom: 10px
+    )
+  );
+  margin-left: rem(289px);
+}

@@ -1,12 +1,29 @@
+import { Box } from '@mui/material'
+import Header from 'components/header'
 import Button from 'elements/button'
-import * as Styled from './login.styled'
+import Input from 'elements/input'
+import { useForm } from 'react-hook-form'
+import styles from './login.module.scss'
 
 const LoginPage = () => {
-  console.log(import.meta.env.VITE_API_URL)
+  const defaultValues = {
+    username: '',
+    password: ''
+  }
+
+  const formOptions = {
+    defaultValues
+  }
+  const { control, handleSubmit } = useForm(formOptions)
+  const onSubmit = (data: any) => {
+    console.log(data)
+  }
   return (
-    <div>
-      <Styled.Button onClick={() => {}}>click</Styled.Button>
-    </div>
+    <Box component="form" onSubmit={handleSubmit(onSubmit)}>
+      <Input type="text" name="username" control={control} placeholder="username" />
+      <Input type="password" name="password" control={control} placeholder="password" />
+      <Button cate="standard">Login</Button>
+    </Box>
   )
 }
 

@@ -1,6 +1,6 @@
 import { Box } from '@mui/system'
 import ProjectList from './components/project-list'
-import * as Styled from './project.styled'
+import styles from './project.module.scss'
 
 const ProjectPage = () => {
   return (

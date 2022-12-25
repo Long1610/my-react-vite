@@ -1,19 +1,68 @@
-import { IInput } from './input.type'
-import styled from 'styled-components'
-import { color, space } from 'styles/theme'
+import React from 'react'
+import { FormControl, InputLabel, OutlinedInput } from '@mui/material'
+import { Controller } from 'react-hook-form'
+import { convertToRem } from 'utils/convertToRem'
+import { InputProps } from './input.type'
+import styles from './input.module.scss'
 
-const Input = styled.input`
-  background: white;
-  border: 1px solid ${color('gray', 200)};
-  box-sizing: border-box;
-  box-shadow: 0px 4px 8px -2px rgba(16, 24, 40, 0.1),
-    0px 2px 4px -2px rgba(16, 24, 40, 0.06);
-  border-radius: ${space(2)};
-  overflow: hidden;
-`
-
-const InputWrapper = ({ onChange, ...input }: IInput) => {
-  return <Input onChange={onChange} {...input}></Input>
+const Input: React.FC<InputProps> = ({
+  label,
+  name,
+  control,
+  startAdornment,
+  endAdornment,
+  type,
+  height = 46,
+  width = '100%',
+  customStyle = '',
+  onKeyDown,
+  placeholder,
+  containerStyle = '',
+  radius = 4,
+  disabled
+}) => {
+  return (
+    <FormControl
+      variant="outlined"
+      className={`${styles.form_control} ${containerStyle}`}
+      sx={{
+        width: convertToRem(width)
+      }}
+    >
+      {!!label && (
+        <InputLabel htmlFor={name} className={styles.input_label}>
+          {label}
+        </InputLabel>
+      )}
+      <Controller
+        name={name}
+        control={control}
+        render={({ field: { onChange, value } }) => (
+          <OutlinedInput
+            disabled={disabled}
+            id={name}
+            value={value}
+            onChange={onChange}
+            placeholder={placeholder}
+            startAdornment={startAdornment}
+            endAdornment={endAdornment}
+            inputProps={{
+              autoComplete: 'off'
+            }}
+            className={`${styles.input_custom} ${customStyle}`}
+            type={type}
+            sx={{
+              height: convertToRem(height),
+              borderRadius: convertToRem(radius)
+            }}
+            onKeyDown={e => {
+              if (onKeyDown) onKeyDown(e)
+            }}
+          />
+        )}
+      />
+    </FormControl>
+  )
 }
 
-export default InputWrapper
+export default Input

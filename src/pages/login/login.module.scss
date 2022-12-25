@@ -1,0 +1,47 @@
+@import '../../assets/scss/variables.scss';
+@import '../../assets/scss/mixins.scss';
+@import 'sass-rem';
+
+.login_wrapper {
+  font-family: 'Inter';
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @include flex-center-horizontal;
+  flex-direction: column;
+  @include rem(
+    (
+      width: 787px,
+      height: 600px,
+      border-radius: 30px,
+      padding: 60px 89px 76px 89px
+    )
+  );
+  background-color: $white-basic;
+  .form_group {
+    width: 100%;
+    margin-top: rem(23px);
+  }
+  .title {
+    @include labelBold4;
+    font-family: 'Inter';
+    @include rem(
+      (
+        margin-bottom: 6px
+      )
+    );
+    color: $greyAA;
+  }
+  label {
+    @include labelBold5;
+    font-family: 'Inter';
+  }
+  .button_login {
+    @include labelBold7;
+    color: $white-basic;
+    font-family: 'Inter';
+    width: 100%;
+    margin-top: rem(57px);
+  }
+}

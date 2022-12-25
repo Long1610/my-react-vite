@@ -1,17 +1,42 @@
-import styled from 'styled-components'
-import { IButton } from './button.type'
+import Loading from 'elements/Loading'
+import React from 'react'
+import { convertToRem } from 'utils/convertToRem'
+import styles from './button.module.scss'
+import { ButtonProps } from './button.type'
 
-const StyledButton = styled.button`
-  color: palevioletred;
-  font-size: 1em;
-  margin: 1em;
-  padding: 0.25em 1em;
-  border: 2px solid palevioletred;
-  border-radius: 3px;
-`
-
-const Button = ({ children, ...button }: IButton) => {
-  return <StyledButton {...button}>{children}</StyledButton>
+const Button: React.FC<ButtonProps> = ({
+  children,
+  width = '100%',
+  height = 56,
+  onClick,
+  radius = 4,
+  isLoading,
+  style = '',
+  cate,
+  disabled
+}) => {
+  let className = ''
+  switch (cate) {
+    case 'standard':
+      className = styles.button_standard
+      break
+    default:
+      className = styles.button_outlined
+  }
+  return (
+    <button
+      disabled={disabled}
+      onClick={onClick}
+      className={`${className} ${style}`}
+      style={{
+        borderRadius: convertToRem(radius),
+        height: convertToRem(height),
+        width: convertToRem(width)
+      }}
+    >
+      {isLoading ? <Loading type="standard" size="small" /> : children}
+    </button>
+  )
 }
 
 export default Button

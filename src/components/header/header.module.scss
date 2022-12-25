@@ -1,0 +1,9 @@
+@import '../../assets/scss/variables.scss';
+@import '../../assets/scss/mixins.scss';
+@import 'sass-rem';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
